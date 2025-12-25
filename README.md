@@ -43,5 +43,5 @@ Para más información o permisos, contacta directamente a [DEVMARSAN](https://d
 
 ## 📸 Vista previa
 
-![Login Preview](assets/login-page.webp)
+![Login Preview](src/assets/login-page.webp)
 
