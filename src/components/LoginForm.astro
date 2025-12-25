@@ -2,7 +2,7 @@
 import FormInput from "./FormInput.astro";
 ---
 
-<form class="space-y-6">
+<form class="space-y-6 w-full">
   <!-- Usuario -->
   <FormInput
     id="username"
@@ -20,17 +20,17 @@ import FormInput from "./FormInput.astro";
   />
 
   <!-- Recuérdame + Olvidaste contraseña -->
-  <div class="flex w-full items-center justify-between mt-4 text-sm text-gray-400">
+  <div class="flex flex-col sm:flex-row mt-4 text-sm text-gray-400 w-full">
+    <!-- Bloque izquierdo -->
     <label class="flex items-center gap-2 cursor-pointer">
-      <input
-        type="checkbox"
-        class="accent-[#10B981] w-4 h-4 rounded"
-      />
+      <input type="checkbox" class="accent-[#10B981] w-4 h-4 rounded" />
       <span>Recuérdame</span>
     </label>
+
+    <!-- Bloque derecho -->
     <a
       href="#"
-      class="block text-[#34D399] hover:underline"
+      class="mt-2 sm:mt-0 sm:ml-auto text-[#34D399] hover:underline text-center sm:text-right"
     >
       ¿Olvidaste tu contraseña?
     </a>
