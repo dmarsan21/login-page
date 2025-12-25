@@ -21,8 +21,7 @@ Este proyecto es un **login modular y estilizado** desarrollado con **Astro** y 
 ## 🚀 Instalación y uso
 
 1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/tuusuario/tu-repo.git
+   git clone https://github.com/dmarsan21/login-page.git
    cd tu-repo
 
 2. Instala dependencias, ejecuta en modo desarrollo y abre en tu navegador:
