@@ -1,0 +1,69 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { id, label, type = "text", placeholder = "" } = Astro.props;
+const isPassword = type === "password";
+---
+
+<div class="flex flex-col relative">
+  <label for={id} class="text-sm font-medium text-white mb-1">{label}</label>
+
+  <div class="relative">
+    <!-- Icono al inicio -->
+    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-300">
+      {type === "text" && id === "username" && (
+        <Icon name="mdi:account" class="h-5 w-5" />
+      )}
+      {isPassword && (
+        <Icon name="mdi:key" class="h-5 w-5" />
+      )}
+    </span>
+
+    <input
+      id={id}
+      type={type}
+      placeholder={placeholder}
+      class={`w-full pl-10 pr-${isPassword ? "10" : "3"} py-2 rounded-md bg-white/20 text-white placeholder-gray-300
+              focus:outline-none focus:ring-2 focus:ring-[#10B981] transition`}
+    />
+
+    {isPassword && (
+      <button
+        type="button"
+        class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-300 hover:text-[#10B981] focus:outline-none js-toggle"
+        aria-label="Mostrar u ocultar contraseña"
+        data-state="hidden"
+      >
+        <!-- Inicialmente ojo cerrado -->
+        <Icon name="mdi:eye" class="h-5 w-5 hidden" data-icon="open" />
+        <Icon name="mdi:eye-off" class="h-5 w-5" data-icon="closed" />
+      </button>
+    )}
+  </div>
+</div>
+
+{isPassword && (
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".js-toggle").forEach((btn) => {
+        const input = btn.parentElement?.querySelector("input");
+        const iconOpen = btn.querySelector('[data-icon="open"]');
+        const iconClosed = btn.querySelector('[data-icon="closed"]');
+
+        if (!input || !iconOpen || !iconClosed) return;
+
+        btn.addEventListener("click", () => {
+          const isShown = btn.dataset.state === "shown";
+          const nextShown = !isShown;
+
+          input.type = nextShown ? "text" : "password";
+          btn.dataset.state = nextShown ? "shown" : "hidden";
+
+          // Alterna visibilidad de los iconos
+          iconOpen.classList.toggle("hidden", !nextShown);
+          iconClosed.classList.toggle("hidden", nextShown);
+        });
+      });
+    });
+  </script>
+)}

@@ -1,0 +1,35 @@
+---
+import FormInput from "./FormInput.astro";
+---
+
+<form class="space-y-6">
+  <FormInput id="username" label="Usuario" type="text" placeholder="Tu usuario" />
+  <FormInput id="password" label="Contraseña" type="password" placeholder="••••••••" />
+
+  <!-- Recuérdame + Olvidaste contraseña -->
+  <div class="flex items-center justify-between text-sm text-gray-300">
+    <label class="flex items-center gap-2 cursor-pointer">
+      <input type="checkbox" class="accent-[#10B981] w-4 h-4 rounded" />
+      <span>Recuérdame</span>
+    </label>
+    <a href="#" class="hover:underline text-[#34D399]">¿Olvidaste tu contraseña?</a>
+  </div>
+
+  <button type="submit"
+    class="w-full bg-[#10B981] text-white font-semibold py-2 rounded-md shadow-md hover:bg-[#34D399] transition-transform">
+    Entrar
+  </button>
+</form>
+
+<!-- Registro -->
+<div class="mt-6 text-center text-sm text-gray-300">
+  <span>¿Aún no estás registrado?</span>
+  <a href="#" class="ml-1 text-[#FBBF24] font-semibold hover:underline">Crear una nueva cuenta</a>
+</div>
+
+<!-- Footer con link -->
+<div class="mt-8 text-center text-xs text-gray-400">
+  Diseñado por 
+  <a href="https://daviddevmx.com/" target="_blank" rel="noopener noreferrer"
+     class="text-[#10B981] font-semibold hover:underline">&lt;DEVMARSAN&gt;</a>
+</div>
